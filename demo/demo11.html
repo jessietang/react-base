@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../react-15.2.1/build/react.min.js"></script>
+    <script src="../react-15.2.1/build/react-dom.min.js"></script>
+    <script src="../react-15.2.1/build/browser.min.js"></script>
+
+    <!--
+    上面代码在hello组件加载以后，通过 componentDidMount 方法设置一个定时器，每隔100毫秒，
+    就重新设置组件的透明度，从而引发重新渲染。
+    另外，组件的style属性的设置方式也值得注意，不能写成
+        style="opacity:{this.state.opacity};"
+    而要写成
+        style={{opacity: this.state.opacity}}
+    这是因为 React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。
+
+    In React, inline styles are not specified as a string. Instead they are specified with an object
+    whose key is the camelCased version of the style name, and whose value is the style's value,
+    usually a string (more on that later):
+    for example:
+    var divStyle = {
+      color: 'white',
+      backgroundImage: 'url(' + imgUrl + ')',
+      WebkitTransition: 'all', // note the capital 'W' here
+      msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+    };
+    ReactDOM.render(<div style={divStyle}>Hello World!</div>, mountNode);
+
+    -->
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var Hello = React.createClass({
+        getInitialState: function(){
+            return {opacity: 1.0}
+        },
+        componentDidMount: function(){
+            this.timer = setInterval(function(){
+                var opacity = this.state.opacity;
+                opacity -= 0.1;
+                if(opacity < 0.1){
+                    opacity = 1.0;
+                }
+                this.setState({opacity: opacity});
+            },500);
+        },
+         render: function(){
+             return (
+                     <div style={{opacity:this.state.opacity}}>Hello {this.props.name}</div>
+             );
+         }
+    });
+    ReactDOM.render(
+            <Hello name="jessie"></Hello>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

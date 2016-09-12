@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+    this.props 对象的属性与组件的属性一一对应，但是有一个例外，就是 this.props.children 属性。
+    它表示组件的所有子节点
+    -->
+    <script src="../react-15.2.1/build/react.min.js"></script>
+    <script src="../react-15.2.1/build/react-dom.min.js"></script>
+    <script src="../react-15.2.1/build/browser.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    var NoteLists = React.createClass({
+        render:function(){
+            return (
+                    <ol>
+                    this is the step:
+                    {
+                        React.Children.map(this.props.children, function(child){
+                                return <li>{child}</li>;
+                            })
+                    }
+                    </ol>
+            );
+        }
+
+    });
+    ReactDOM.render(
+           <NoteLists>
+                <span>to open the file </span>
+                <span>edit it now </span>
+            </NoteLists>,
+            document.body
+    );
+</script>
+</body>
+</html>

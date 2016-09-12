@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../react-15.2.1/build/react.min.js"></script>
+    <script src="../react-15.2.1/build/react-dom.min.js"></script>
+    <script src="../react-15.2.1/build/browser.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    var MyComponent = React.createClass({
+        handleClick: function(){
+            this.refs.myTextInput.focus();
+        },
+        handleKeyDown: function(){
+            this.refs.myTextInput.value = "1111";
+        },
+        render: function(){
+            return (
+                    <div>
+                        <input type="text" ref="myTextInput" onKeyDown={this.handleKeyDown}/>,
+                        <input type="button" value="click this button to make input text focus" onClick={this.handleClick}/>
+                    </div>
+            );
+        }
+    });
+    ReactDOM.render(
+            <MyComponent></MyComponent>,
+            document.body
+    );
+</script>
+</body>
+</html>

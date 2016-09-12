@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../react-15.2.1/build/react.min.js"></script>
+    <script src="../react-15.2.1/build/react-dom.min.js"></script>
+    <script src="../react-15.2.1/build/browser.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    var MyTitle = React.createClass({
+        propTypes: {
+            title:React.PropTypes.num,
+            children:React.PropTypes.element
+        },
+        render: function(){
+            return <h1>title is : {this.props.title}, children is : {this.props.children}</h1>;
+        }
+    });
+    var data = '123';
+    ReactDOM.render(
+           <MyTitle title={data}>
+                <span>1111</span>
+            <span>2222</span>
+            </MyTitle>,
+            document.body
+    );
+</script>
+</body>
+</html>

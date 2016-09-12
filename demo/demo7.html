@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../react-15.2.1/build/react.min.js"></script>
+    <script src="../react-15.2.1/build/react-dom.min.js"></script>
+    <script src="../react-15.2.1/build/browser.min.js"></script>
+</head>
+<body>
+<script type="text/babel">
+    var MyTitle = React.createClass({
+        getDefaultProps:function(){
+            return {
+                title:'learn reactjs',
+                className:'myClassName'
+            }
+        },
+        render: function(){
+            return (<h1>title is:{this.props.title}<br/>className is:{this.props.className}</h1>);
+        }
+    });
+    ReactDOM.render(
+            <MyTitle></MyTitle>,
+            document.body
+    );
+</script>
+</body>
+</html>

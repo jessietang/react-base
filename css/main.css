@@ -1,0 +1,46 @@
+.outsideWrapper {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    min-height: 600px;
+    margin: 10px auto;
+    background-color: #33AAAA;
+    text-align: center;
+}
+
+.popup-choose {
+    display: none;
+    z-index: 2;
+    position: absolute;
+    padding: 20px 50px;
+    background-color: #00CCFF;
+    width: 60%;
+    margin: 20px auto;
+    left: 50%;
+    margin-left: -30%;
+    top: 200px;
+}
+
+.input-item-wrapper {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+
+.input-item-wrapper .oneItem {
+    padding: 5px 0;
+}
+
+.input-item-wrapper .oneItem input {
+    border: none;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    height:33px;
+    margin-right: 10px;
+    width: 180px;
+}
+
+.btn-add {
+    position: relative;
+    z-index: 3;
+}

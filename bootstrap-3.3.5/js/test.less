@@ -1,0 +1,134 @@
+header {
+  min-width: 1024px;
+  overflow: visible;
+  height: 82px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1010;
+  background-color: #000;
+  padding: 0px 40px 0px 15px;
+  right: 100px;
+  padding-right: 0;
+
+  h1 {
+    float: left;
+    margin-top: 16px;
+
+    a {
+      display: block;
+      width: 110px;
+      height: 52px;
+      text-indent: -119988px;
+      text-align: left;
+      background: url("http://static.pomwonderful.com/static/c-a86b0a1/img/header/logo.png") 0px 0px no-repeat transparent;
+      overflow: hidden;
+    }
+  }
+
+  nav {
+    ul {
+      li {
+        font-family: ProximaNovaSemibold;
+        font-size: 20px;
+        float: left;
+        position: relative;
+        height: 51px;
+        z-index: 1;
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent;
+        margin: 13px 0px 0px;
+
+        a {
+          text-decoration: none;
+          display: block;
+          line-height: 51px;
+          text-transform: uppercase;
+          color: #fff;
+          cursor: pointer;
+          transition: color 0.15s ease-out;
+          padding: 0px 14px;
+        }
+
+        a:link, a:visited {
+          color: #fff;
+        }
+
+        a:hover {
+          color: rgb(223, 30, 42);
+        }
+      }
+
+      li:first-child {
+        margin-left: 14px;
+      }
+
+      li.sub {
+        background-color: #000;
+
+        ul {
+          max-height: 0px;
+          position: absolute;
+          top: 50px;
+          left: -1px;
+          min-width: 100%;
+          padding-bottom: 7px;
+          box-sizing: content-box;
+          background: transparent;
+          overflow: hidden;
+
+          li {
+            float: none;
+            min-width: 150px;
+            white-space: nowrap;
+            height: auto;
+            padding: 0px;
+            margin: 0px;
+
+            a {
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            a:visited {
+              color: #fff;
+            }
+          }
+
+          li:first-child {
+            margin-left: 0px;
+            padding-top: 12px;
+          }
+        }
+      }
+
+      li.sub:hover {
+        border: 1px solid rgb(249, 249, 249);
+
+        a {
+          position: relative;
+          background-color: #000;
+        }
+
+        ul {
+          max-height: 300px;
+          box-shadow: rgba(0, 0, 0, 0.74902) 0px 0px 5px;
+          background-color: #000;
+          border: 1px solid rgb(249, 249, 249);
+        }
+
+      }
+      li.sub:hover::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        bottom: -2px;
+        left: 0px;
+        background-color: #000;
+      }
+    }
+  }
+}

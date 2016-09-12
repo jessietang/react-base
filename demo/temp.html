@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+<div class="outsideWrapper">
+    <button class="btn btn-primary">preview</button>
+
+    <button class="btn btn-danger glyphicon glyphicon-plus btn-add"></button>
+    <!-- popup start -->
+    <div class="popup-choose">
+        <div>please choose one input element</div>
+        <div>
+            <label for="input-text">
+                <input type="radio" name="radio-input" id="input-text"/>文本
+            </label>
+        </div>
+        <div>
+            <label for="input-eamil">
+                <input type="radio" name="radio-input" id="input-eamil"/>邮箱
+            </label>
+        </div>
+        <button class="btn btn-primary">sure choose</button>
+    </div><!-- popup end -->
+
+    <!-- edit: input item list start-->
+    <div class="input-item-wrapper">
+        <div class="oneItem">
+            <input type="text" placeholder="please enter with text"/>
+            <button class="btn btn-danger glyphicon glyphicon-minus btn-remove"></button>
+        </div>
+        <div class="oneItem">
+            <input type="eamil" placeholder="please enter with email"/>
+            <button class="btn btn-danger glyphicon glyphicon-minus btn-remove"></button>
+        </div>
+    </div> <!-- input item list end-->
+
+    <!--preview: result list start-->
+    <div class="input-item-wrapper">
+        <button class="btn btn-primary">edit</button>
+        <form action="">
+            <div class="oneItem">
+                <input type="text"/>
+                <button class="btn btn-danger glyphicon glyphicon-minus btn-remove"></button>
+            </div>
+            <div class="oneItem">
+                <input type="eamil"/>
+                <button class="btn btn-danger glyphicon glyphicon-minus btn-remove"></button>
+            </div>
+            <button class="btn btn-primary">submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
