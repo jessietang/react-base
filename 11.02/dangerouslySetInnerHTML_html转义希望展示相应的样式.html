@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react-15.2.1/build/react.min.js"></script>
+<script src="../react-15.2.1/build/react-dom.min.js"></script>
+<script src="../react-15.2.1/build/browser.min.js"></script>
+<script type="text/babel">
+    var MyHtmlStyle = React.createClass({
+        getInitialState: function(){
+            return {
+                content: '<strong style="color: red;">my html style show</strong>'
+            };
+        },
+        render: function(){
+            var content2 = '<em>my html style show, too!</em>';
+            return (
+                    <div>
+                        <div>{this.state.content}</div>
+                        <div>{content2}</div>
+                        <div dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+                        <div dangerouslySetInnerHTML={{__html: content2}}></div>
+                    </div>
+            )
+        }
+    });
+
+    ReactDOM.render(
+            <MyHtmlStyle/>,
+            document.getElementById('app')
+    );
+</script>
+</body>
+</html>

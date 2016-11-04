@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react-15.2.1/build/react.min.js"></script>
+<script src="../react-15.2.1/build/react-dom.min.js"></script>
+<script src="../react-15.2.1/build/browser.min.js"></script>
+<script type="text/babel">
+    /*
+    * 1.每一个radio， checkbox都要写value这个属性，不然e.target.value取不到值
+    * */
+    var FormApp = React.createClass({
+        getInitialState: function(){
+            return {
+                inputValue: 'inputValue...',
+                selectValue: 'cassie',
+                checkValues: ['B'],
+                radioValue: 'B',
+                textAreaValue: 'textarea value...'
+            };
+        },
+        handleSubmit: function(e){
+            e.preventDefault();
+            var dataForm = {
+                input: this.refs.myInput.value,
+                select: this.refs.mySelect.value,
+                checkbox: this.state.checkValues,
+                radio: this.state.radioValue,
+                textArea: this.refs.myTextArea.value
+            };
+            console.log(dataForm);
+        },
+        handleRadio: function(e){
+            this.setState({
+                radioValue: e.target.value
+            });
+        },
+        handleCheckBox: function(e){
+            var checkValues = this.state.checkValues.slice(0);/*如果没有指定该参数，
+            那么切分的数组包含从 start 到数组结束的所有元素。*/
+            var nowValue = e.target.value;
+            var nowIndex = checkValues.indexOf(nowValue);
+            if(nowIndex == -1){
+                checkValues.push(nowValue);
+            }else{
+                checkValues.splice(nowIndex, 1); /*splice用于删除从index开始的m个元素*/
+            }
+            this.setState({
+                checkValues: checkValues
+            });
+        },
+        render: function(){
+            return (
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <h3>input</h3>
+                            <input type="text" defaultValue={this.state.inputValue} ref="myInput"/>
+                            <h3>select</h3>
+                            <select defaultValue={this.state.selectValue} ref="mySelect">
+                                <option defaultValue="jessie">jessie</option>
+                                <option defaultValue="cassie">cassie</option>
+                                <option defaultValue="vicky">vicky</option>
+                            </select>
+
+                            <CheckBox handleCheckBox={this.handleCheckBox}/>
+
+                            <RadioBox handleRadio={this.handleRadio}/>
+
+                            <h3>textArea</h3>
+                            <textarea ref="myTextArea" cols="10" rows="4" defaultValue={this.state.textAreaValue}></textarea>
+                            <button>submit</button>
+                        </form>
+                    </div>
+            )
+        }
+    });
+
+    var CheckBox = React.createClass({
+        render: function(){
+            return (
+                    <div>
+                        <h3>checkbox</h3>
+                        <input onChange={this.props.handleCheckBox} type="checkbox" value="A"/>A
+                        <input onChange={this.props.handleCheckBox} type="checkbox" value="B" defaultChecked/>B
+                        <input onChange={this.props.handleCheckBox} type="checkbox" value="C"/>C
+                        <input onChange={this.props.handleCheckBox} type="checkbox" value="D"/>D
+                    </div>
+            )
+        }
+    });
+
+    var RadioBox = React.createClass({
+        render: function(){
+            return (
+                    <div>
+                        <h3>radio</h3>
+                        <input onChange={this.props.handleRadio} type="radio" name="radioName" value="A"/>A
+                        <input onChange={this.props.handleRadio} type="radio" name="radioName" value="B" defaultChecked/>B
+                        <input onChange={this.props.handleRadio} type="radio" name="radioName" value="C"/>C
+                        <input onChange={this.props.handleRadio} type="radio" name="radioName" value="D"/>D
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <FormApp/>,
+            document.getElementById('app')
+    );
+</script>
+</body>
+</html>

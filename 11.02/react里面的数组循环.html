@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react-15.2.1/build/react.min.js"></script>
+<script src="../react-15.2.1/build/react-dom.min.js"></script>
+<script src="../react-15.2.1/build/browser.min.js"></script>
+<script type="text/babel">
+    var HelloWorld = React.createClass({
+        getInitialState: function(){
+            return {
+                littleMessage: 'Hello Kitty!'
+            };
+        },
+        clickMe: function(){
+             alert('you have clicked me...');
+        },
+        render: function(){
+            var messages = [];
+            for(var i=0; i<10; i++){
+                messages.push(<SubMessage/>);
+            }
+            return (
+                    <div>
+                        <h1 onClick={this.clickMe}>{this.state.littleMessage}</h1>
+                        {messages}
+                    </div>
+            )
+        }
+    });
+
+    var SubMessage = React.createClass({
+        render: function(){
+            return (
+                    <h2>i am little two.</h2>
+            )
+        }
+    });
+
+    ReactDOM.render(
+            <HelloWorld/>,
+            document.getElementById('app'),
+            function(){
+                alert('render over!');
+            }
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react-15.2.1/build/react.min.js"></script>
+<script src="../react-15.2.1/build/react-dom.min.js"></script>
+<script src="../react-15.2.1/build/browser.min.js"></script>
+<script type="text/babel">
+    var ClickApp = React.createClass({
+        getInitialState: function(){
+            return {
+                clickCount: 0
+            };
+        },
+        handleClick: function(){
+            this.setState({
+                clickCount: this.state.clickCount+1
+            });
+        },
+        render: function(){
+            var styleColor = {
+                color: this.state.clickCount > 5 ? 'red' : 'blue'
+            };
+            console.log(styleColor);
+            return (
+                    <div>
+                        <h4 style={styleColor}> look my color change. </h4>
+                        <button onClick={this.handleClick}>click me try try</button>
+                        <h3>you have clicked me <span>{this.state.clickCount}</span> times.</h3>
+                    </div>
+            )
+        }
+    });
+    ReactDOM.render(
+            <ClickApp/>,
+            document.getElementById('app')
+    );
+</script>
+</body>
+</html>

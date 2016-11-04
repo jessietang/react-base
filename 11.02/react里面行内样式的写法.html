@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react-15.2.1/build/react.min.js"></script>
+<script src="../react-15.2.1/build/react-dom.min.js"></script>
+<script src="../react-15.2.1/build/browser.min.js"></script>
+<script type="text/babel">
+    var MyStyle = React.createClass({
+        render: function(){
+            var divStyle = {
+                color: 'red',
+                fontSize: '30px',
+                fontWeight: '600',
+                backgroundColor: '#000'
+            };
+            return (
+                    <div style={divStyle}>it is my style</div>
+            )
+        }
+    });
+
+    ReactDOM.render(
+            <MyStyle/>,
+            document.getElementById("app")
+    );
+</script>
+</body>
+</html>
