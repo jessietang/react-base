@@ -114,13 +114,17 @@ var ProductItem = React.createClass({
         /*if(boughtList[nowKey]){
             boughtList[nowKey].num += 1;
         }  */ //这种写法是错误的！！！
-        for(var i in boughtList){
-            if(boughtList[i].key == nowKey){
-                console.log('has in');
-                boughtList[i].num += 1;
-                flag = true;
+        if(boughtList.length > 0){
+            for(var i in boughtList){
+                if(boughtList[i].key == nowKey){
+                    console.log('has in');
+                    boughtList[i].num += 1;
+                    flag = true;
+                    break;
+                }
             }
         }
+
         if(!flag){
             var arr = {};
             arr.key = nowKey;
